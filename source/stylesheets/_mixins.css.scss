@@ -1,0 +1,231 @@
+// Colors
+// -------------------------------------
+
+$purple: #6C3192;
+$red: #C42027;
+$gray: #4C4C4C;
+
+// Clearfix
+// -------------------------------------
+
+@mixin clearfix {
+ // For modern browsers
+  &:before, &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+  // For IE 6/7 (trigger hasLayout)
+  & {
+    zoom: 1;
+  }
+}
+
+
+// Backgrounds
+// -------------------------------------
+@mixin gradient($from, $to) {
+  background: $from; // Old browsers
+  background: -moz-linear-gradient(top,  $from 0%, $to 100%); // FF3.6+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$from), color-stop(100%,$to)); // Chrome,Safari4+
+  background: -webkit-linear-gradient(top,  $from 0%,$to 100%); // Chrome10+,Safari5.1+
+  background: -o-linear-gradient(top,  $from 0%,$to 100%); // Opera 11.10+
+  background: -ms-linear-gradient(top,  $from 0%,$to 100%); // IE10+
+  background: linear-gradient(to bottom,  $from 0%,$to 100%); // W3C
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$from', endColorstr='#ffffff',GradientType=0 ); // IE6-9
+}
+
+@mixin left-white-fade {
+  background: #fff;
+  background: -moz-linear-gradient(left,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* IE10+ */
+  background: linear-gradient(to right,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 */
+}
+
+@mixin right-white-fade {
+  background: #fff;
+  background: -moz-linear-gradient(left,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* IE10+ */
+  background: linear-gradient(to right,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 ); /* IE6-9 */
+}
+
+@mixin left-blue-fade {
+  background: transparent;
+  background: -moz-linear-gradient(left,  rgba(71,123,196,1) 0%, rgba(71,123,196,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(71,123,196,1)), color-stop(100%,rgba(71,123,196,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(71,123,196,1) 0%,rgba(71,123,196,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(71,123,196,1) 0%,rgba(71,123,196,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(71,123,196,1) 0%,rgba(71,123,196,0) 100%); /* IE10+ */
+  background: linear-gradient(to right,  rgba(71,123,196,1) 0%,rgba(71,123,196,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#477bc4', endColorstr='#000',GradientType=1 ); /* IE6-9 */
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity / 100;
+  filter: alpha(opacity=$opacity);
+}
+
+// Background clipping
+// Heads up: FF 3.6 and under need "padding" instead of "padding-box"
+@mixin background-clip($clip) {
+  -webkit-background-clip: $clip;
+     -moz-background-clip: $clip;
+          background-clip: $clip;
+}
+
+
+// Shadows
+// -------------------------------------
+@mixin box-shadow($shadows...) {
+  -webkit-box-shadow: $shadows;
+     -moz-box-shadow: $shadows;
+          box-shadow: $shadows;
+}
+
+@mixin text-shadow($shadows...) {
+  -webkit-text-shadow: $shadows;
+     -moz-text-shadow: $shadows;
+          text-shadow: $shadows;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+
+
+// Sizing
+// -------------------------------------
+@mixin box-sizing($sizing) {
+  -webkit-box-sizing: $sizing;
+     -moz-box-sizing: $sizing;
+      -ms-box-sizing: $sizing;
+          box-sizing: $sizing;
+}
+
+
+// Transitions
+// -------------------------------------
+@mixin transition($properties...) {
+  -webkit-transition: $properties;
+     -moz-transition: $properties;
+       -o-transition: $properties;
+          transition: $properties;
+}
+
+@mixin transition-delay($transition-delay...) {
+  -webkit-transition-delay: $transition-delay;
+     -moz-transition-delay: $transition-delay;
+       -o-transition-delay: $transition-delay;
+          transition-delay: $transition-delay;
+}
+
+
+// Transformations
+// -------------------------------------
+@mixin transform($properties...) {
+  -webkit-transform: $properties;
+     -moz-transform: $properties;
+      -ms-transform: $properties;
+       -o-transform: $properties;
+          transform: $properties;
+}
+
+@mixin rotate($degrees) {
+  -webkit-transform: rotate($degrees);
+     -moz-transform: rotate($degrees);
+      -ms-transform: rotate($degrees);
+       -o-transform: rotate($degrees);
+          transform: rotate($degrees);
+}
+
+@mixin scale($ratio) {
+  -webkit-transform: scale($ratio);
+     -moz-transform: scale($ratio);
+      -ms-transform: scale($ratio);
+       -o-transform: scale($ratio);
+          transform: scale($ratio);
+}
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+     -moz-transform: translate($x, $y);
+      -ms-transform: translate($x, $y);
+       -o-transform: translate($x, $y);
+          transform: translate($x, $y);
+}
+
+
+// Typography
+// -------------------------------------
+// Not all weights are necessarily available for performance reasons.
+// Check Typekit before using to ensure availability.
+//
+@mixin proxima-nova-thin {
+  font-family: $proxima-nova;
+  font-weight: 100;
+}
+
+@mixin proxima-nova-light { // in kit
+  font-family: $proxima-nova;
+  font-weight: 300;
+}
+
+@mixin proxima-nova-regular { // in kit
+  font-family: $proxima-nova;
+  font-weight: 400;
+}
+
+@mixin proxima-nova-semibold { // in kit
+  font-family: $proxima-nova;
+  font-weight: 600;
+}
+
+@mixin proxima-nova-bold { // in kit
+  font-family: $proxima-nova;
+  font-weight: 700;
+}
+
+@mixin proxima-nova-condensed-thin {
+  font-family: $proxima-nova-condensed;
+  font-weight: 200;
+}
+
+@mixin proxima-nova-condensed-light { // in kit
+  font-family: $proxima-nova-condensed;
+  font-weight: 300;
+}
+
+@mixin proxima-nova-condensed-regular { // in kit
+  font-family: $proxima-nova-condensed;
+  font-weight: 400;
+}
+
+@mixin proxima-nova-condensed-semibold {
+  font-family: $proxima-nova-condensed;
+  font-weight: 600;
+}
+
+@mixin proxima-nova-condensed-bold { // in kit
+  font-family: $proxima-nova-condensed;
+  font-weight: 700;
+}
+
+// Miscellaneous
+// ----------------------------------------
+
+@mixin overflowable {
+  overflow: visible;
+}

@@ -1,0 +1,130 @@
+body {
+  font-family: "adobe-garamond-pro", sans-serif;
+  line-height: 1.5;
+  font-size: 20px;
+  border-bottom: 20px solid $gray;
+}
+
+a {
+  color: $purple;
+  border-bottom: 1px dashed $purple;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom: 0;
+  }
+}
+
+p {
+  padding-bottom: 20px;
+  font-size: 20px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 960px;
+}
+
+.header {
+  min-width: 960px;
+  padding: 30px;
+  // background-color: $purple;
+  background: transparent image-url("reflection-blurred.jpg") left top no-repeat;
+  background-size: cover;
+
+  .logo {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 220px;
+    height: 220px;
+    text-indent: -9999px;
+    background: transparent image-url("logo@2x.png") left top no-repeat;
+    background-size: 100% 100%;
+    border: 0;
+  }
+
+  h1 {
+    padding-bottom: 10px;
+    font-size: 45px;
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+  }
+
+  h2 {
+    font-family: "proxima-nova", sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 0 15px rgba(0,0,0,0.3);
+  }
+}
+
+.section {
+  @include clearfix;
+  min-width: 960px;
+  padding: 40px;
+
+  .panel {
+    @include box-sizing(border-box);
+    width: 50%;
+    min-height: 500px;
+
+    &.left {
+      float: left;
+      padding-right: 50px;
+      border-right: 1px dashed $red;
+    }
+
+    &.right {
+      padding-left: 50px;
+      float: right;
+    }
+  }
+
+  h3 {
+    padding-bottom: 26px;
+    font-size: 28px;
+    color: $red;
+    font-weight: bold;
+  }
+}
+
+ul.retailers {
+  list-style-type: square;
+  list-style-position: outside;
+  margin-left: 30px;
+
+  li {
+    padding-bottom: 20px;
+  }
+}
+
+ul.hotels {
+  padding: 10px 0;
+
+  li {
+    @include box-sizing(border-box);
+    float: left;
+    padding: 0 20px 40px 0;
+    display: block;
+    width: 50%;
+  }
+}
+
+.footer {
+  padding: 40px 0;
+  border-top: 1px dashed $red;
+
+  .thank-you {
+    padding-bottom: 150px;
+    font-size: 50px;
+    font-style: italic;
+    text-align: center;
+    color: $red;
+    background: transparent image-url("names.png") center bottom no-repeat;
+  }
+}
